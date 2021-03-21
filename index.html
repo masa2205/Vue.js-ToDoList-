@@ -7,7 +7,7 @@
 </head>
 <body>
   <div id="app">
-    <input type="text" v-model="message">
+    <h1>To Do List</h1>
     <ul>
       <li v-for="thing in things">
         <label>
@@ -15,7 +15,8 @@
         </label>
       </li>  
     </ul>
-    <button v-on:click="add">add</button>
+    <input type="text" v-model="newthings">
+    <button v-on:click="add">追加</button>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="main.js"></script>
