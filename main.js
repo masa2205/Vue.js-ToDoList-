@@ -14,6 +14,7 @@ var app = new Vue ({
                title: this.newthings,
                isChecked: false,
            });
+           this.newthings = "";
        },
    },
 })

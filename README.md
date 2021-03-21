@@ -314,7 +314,7 @@ var app = new Vue ({
 </html>
 ```
 
-データ内に`newthings`を追加し`v-model`でバインディングする(入力した内容が追加されるようにしたいので値を空白に設定する)。
+データ内に`newthings`を追加し`v-model`でバインディングする(入力した内容が追加されるようにしたいので値を空白に設定する)。  
 追加ボタンを押したときにテキストボックスに入力された要素を既存の`thingリスト`に追加する関数を定義する(`v-on:click=関数名`でバインディング)
 
 ```
@@ -334,6 +334,30 @@ var app = new Vue ({
                title: this.newthings,
                isChecked: false,
            });
+       },
+   },
+})
+```
+追加ボタンを押すとテキストボックス内に入力した文字が残ってしまうので残らないようにする。
+`add`関数の最後にその処理を追加する。
+```
+var app = new Vue ({
+   el: "#app",
+   data: {
+       things: [
+        { title: 'やること1', isChecked: false,},
+        { title: 'やること2', isChecked: false,},
+        { title: 'やること3', isChecked: true,},
+       ],   
+       newthings:"",
+   },
+   methods: {
+       add: function(){
+           this.things.push({
+               title: this.newthings,
+               isChecked: false,
+           });
+           this.newthings = "";
        },
    },
 })
