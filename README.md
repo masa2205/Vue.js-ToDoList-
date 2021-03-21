@@ -282,3 +282,59 @@ var app = new Vue ({
 })
 ```
 ブラウザで確認する。
+
+- ToDoリストに新しいToDo要素を追加する
+
+テキストボックス内に新しいToDo要素を入力し、追加ボタンをクリックした際にToDoリストに追加されるようにする。
+
+`<div id="app">` 内の　テキストボックス内の要素と`<button>`タグの中身を下記を修正する。
+```
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js ToDoList学習</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="app">
+    <h1>To Do List</h1>
+    <ul>
+      <li v-for="thing in things">
+        <label>
+          <input type="checkbox" v-model="thing.isChecked"> {{ thing.title }}
+        </label>
+      </li>  
+    </ul>
+    <input type="text" v-model="newthings">
+    <button v-on:click="add">追加</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
+```
+
+データ内に`newthings`を追加し`v-model`でバインディングする(入力した内容が追加されるようにしたいので値を空白に設定する)。
+追加ボタンを押したときにテキストボックスに入力された要素を既存の`thingリスト`に追加する関数を定義する(`v-on:click=関数名`でバインディング)
+
+```
+var app = new Vue ({
+   el: "#app",
+   data: {
+       things: [
+        { title: 'やること1', isChecked: false,},
+        { title: 'やること2', isChecked: false,},
+        { title: 'やること3', isChecked: true,},
+       ],   
+       newthings:"",
+   },
+   methods: {
+       add: function(){
+           this.things.push({
+               title: this.newthings,
+               isChecked: false,
+           });
+       },
+   },
+})
+```
