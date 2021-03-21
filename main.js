@@ -1,6 +1,6 @@
-const app = new Vue ({
+var app = new Vue ({
    el: "#app",
    data: {
-       //リアクティブ要素にするためのデータを追加
+       message: "Hello World",
    }
-})
+});
