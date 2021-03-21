@@ -228,3 +228,57 @@ var app = new Vue ({
 })
 ```
 ブラウザ上で動作確認する。
+
+## ToDoListの作成
+
+上記で確認した機能を組み合わせて実際にToDoListを作成してみる。
+
+- ToDoリストを表示させる
+```
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js ToDoList学習</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="message">
+    <ul>
+      <li v-for="thing in things">
+        <label>
+          <input type="checkbox" v-model="thing.isChecked"> {{ thing.title }}
+        </label>
+      </li>  
+    </ul>
+    <button v-on:click="add">add</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
+```
+リストのプロパティ内には下記の2点を入れる。
+- ToDoリストの内容
+- チェックボックスによる確認
+```
+var app = new Vue ({
+   el: "#app",
+   data: {
+       things: [
+        { title: 'やること1', isChecked: false,},
+        { title: 'やること2', isChecked: false,},
+        { title: 'やること3', isChecked: true,},
+       ],
+       counter: 0
+   },
+   methods: {
+       add: function(){
+           this.counter++
+       },
+   },
+})
+```
+ブラウザで確認する。
