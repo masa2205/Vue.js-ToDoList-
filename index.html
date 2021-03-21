@@ -13,6 +13,8 @@
     <ul>
       <li v-for="thing in things">{{ thing.title }}</li>
     </ul>
+    {{ counter }}
+    <button v-on:click="add">add</button>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="main.js"></script>

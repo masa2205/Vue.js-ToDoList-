@@ -157,6 +157,56 @@ Vue.jsのアプリケーションを紐づけたdivタグの中に`v-for`ディ�
 </body>
 </html>
 ```
+
+```
+var app = new Vue ({   
+   el: "#app",  
+   data: {  
+       message: "Hello World",  
+       isChecked: true,  
+       things: [  
+        { title: 'やること1'},  
+        { title: 'やること2'},  
+        { title: 'やること3'},  
+    ]  
+   },  
+})  
+```
+ブラウザ上で確認する。
+
+## クリックイベントを追加する
+
+ボタンをクリックする度に数が1ずつ増えていくイベントを追加してみる。  
+Vue.jsのアプリケーションを紐づけたdivタグの中に`v-on:click`を使用する。  
+`methods`オプションを作成し、その中で関数を定義する。  
+データオプション内のデータは`this.データ名`で参照できる。  
+```
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js ToDoList学習</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="message">
+    <input type="checkbox" v-model="isChecked">
+    {{ message }} {{ isChecked }}
+    <ul>
+      <li v-for="thing in things">{{ thing.title }}</li>
+    </ul>
+    {{ counter }}
+    <button v-on:click="add">add</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
+```
+
+```
 var app = new Vue ({
    el: "#app",
    data: {
@@ -166,8 +216,15 @@ var app = new Vue ({
         { title: 'やること1'},
         { title: 'やること2'},
         { title: 'やること3'},
-    ]
+        
+       ],
+       counter: 0
+   },
+   methods: {
+       add: function(){
+           this.counter++
+       },
    },
 })
 ```
-ブラウザ上で確認する。
+ブラウザ上で動作確認する。
