@@ -72,7 +72,7 @@ var app = new Vue ({
 ```
 ブラウザ上で確認する。
 
-- データをバインディングする
+## データをバインディングする
 `{{ message }}`に`v-model`ディレクテブを追加する(入力したデータとバインディングしたいので`type=text`とし、テキストボックスを追加)。
 ```
 <!DOCTYPE html>
@@ -95,7 +95,7 @@ var app = new Vue ({
 ```
 ブラウザ上で確認する。
 
-- チェックボックスを追加する
+## チェックボックスを追加する
 
 input要素に `v-model="true"` であればチェックがつき、 `v-model="false"` であればチェックがはずれ
 る。
@@ -125,6 +125,48 @@ var app = new Vue ({
    data: {
        message: "Hello World",
        isChecked: true
+   },
+})
+```
+ブラウザ上で確認する。
+
+## リストを追加する
+
+Vue.jsのアプリケーションを紐づけたdivタグの中に`v-for`ディレクティブを使用。
+データオプション内に特定の配列を作成し、`v-for`で指定する。
+```
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js ToDoList学習</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="message">
+    <input type="checkbox" v-model="isChecked">
+    {{ message }} {{ isChecked }}
+    <ul>
+      <li v-for="thing in things">{{ thing.title }}</li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
+```
+var app = new Vue ({
+   el: "#app",
+   data: {
+       message: "Hello World",
+       isChecked: true,
+       things: [
+        { title: 'やること1'},
+        { title: 'やること2'},
+        { title: 'やること3'},
+    ]
    },
 })
 ```
