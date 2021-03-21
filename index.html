@@ -15,8 +15,10 @@
         </label>
       </li>  
     </ul>
-    <input type="text" v-model="newthings">
-    <button v-on:click="add">追加</button>
+    <form @submit.prevent="add">
+      <input type="text" v-model="newthings">
+      <button type="submit">追加</button>
+    </form>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="main.js"></script>
