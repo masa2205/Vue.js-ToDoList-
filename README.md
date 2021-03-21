@@ -38,3 +38,36 @@ const app = new Vue ({
    }
 })
 ```
+- データ表示の確認  
+  
+Vue.jsのアプリケーションを紐づけたdivタグの中に`{{ データの名前 }}`を使用
+```
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js ToDoList学習</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
+```
+
+　Vueインスタンスの中でdataプロパティを定義する。
+
+```
+var app = new Vue ({
+   el: "#app",
+   data: {
+       message: "Hello World",
+   }
+});
+```
+ブラウザ上で確認する。
