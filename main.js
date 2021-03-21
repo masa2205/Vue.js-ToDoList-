@@ -7,6 +7,13 @@ var app = new Vue ({
         { title: 'やること1'},
         { title: 'やること2'},
         { title: 'やること3'},
-    ]
+        
+       ],
+       counter: 0
+   },
+   methods: {
+       add: function(){
+           this.counter++
+       },
    },
 })
