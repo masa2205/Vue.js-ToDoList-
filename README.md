@@ -28,3 +28,13 @@ $ touch index.html
 </body>
 </html>
 ```
+- `main.css`ファイルと`main.js`ファイルを作成する。
+- `main.js`ファイル内を構成する。
+```
+const app = new Vue ({
+   el: "#app",
+   data: {
+       //リアクティブ要素にするためのデータを追加
+   }
+})
+```
