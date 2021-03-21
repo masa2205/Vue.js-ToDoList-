@@ -60,14 +60,37 @@ Vue.jsのアプリケーションを紐づけたdivタグの中に`{{ データ�
 </html>
 ```
 
-　Vueインスタンスの中でdataプロパティを定義する。
+Vueインスタンスの中でdataプロパティを定義する。
 
 ```
 var app = new Vue ({
-   el: "#app",
+   el: "#app"
    data: {
        message: "Hello World",
    }
 });
+```
+ブラウザ上で確認する。
+
+- データをバインディングする
+`{{ message }}`に`v-model`ディレクテブを追加する(入力したデータとバインディングしたいので`type=text`とし、テキストボックスを追加)。
+```
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js ToDoList学習</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="message">
+    {{ message }}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
 ```
 ブラウザ上で確認する。
