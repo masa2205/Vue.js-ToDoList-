@@ -1,13 +1,10 @@
 var app = new Vue ({
    el: "#app",
    data: {
-       message: "Hello World",
-       isChecked: true,
        things: [
-        { title: 'やること1'},
-        { title: 'やること2'},
-        { title: 'やること3'},
-        
+        { title: 'やること1', isChecked: false,},
+        { title: 'やること2', isChecked: false,},
+        { title: 'やること3', isChecked: true,},
        ],
        counter: 0
    },
