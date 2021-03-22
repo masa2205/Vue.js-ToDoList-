@@ -29,12 +29,12 @@ var app = new Vue ({
        },
    },
    computed: {
-    setDate: function() {
-        hiduke = new Date();
-        year = hiduke.getFullYear();
-        month = hiduke.getMonth()+1;
-        day = hiduke.getDate();
-        return this.transfer_data = year + '/' + month + '/' + day ;
-        } 
+        setDate: function() {
+           hiduke = new Date();
+           year = hiduke.getFullYear();
+           month = hiduke.getMonth()+1;
+           day = hiduke.getDate();
+           return this.transfer_data = year + '/' + month + '/' + day ;
+           } 
    }
 })
