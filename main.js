@@ -10,6 +10,7 @@ var app = new Vue ({
    },
    methods: {
        add: function(){
+           if(this.newthings == "")return;
            this.things.push({
                title: this.newthings,
                isChecked: false,
