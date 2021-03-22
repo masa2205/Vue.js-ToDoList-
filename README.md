@@ -575,3 +575,18 @@ deleteTodo: function(){
            }
        },
 ```
+
+- コンパイル前の表示を隠す
+
+コンパイルをする際にマスタッシュ構文が一瞬表示されるのを非表示にする。
+`v-cloak`ディレクティブを使う。
+`div`タグにv-cloakを追加する。
+```
+<div id="app" v-cloak>
+```
+CSS内でv-cloakを指定し、`display:none`を付与する。
+```
+[v-cloak]{
+    display:none;
+  }
+```
