@@ -18,9 +18,14 @@ var app = new Vue ({
            this.newthings = ""
        },
        deleteTodo: function(){
-           this.things = this.things.filter(function(thing){
-               return thing.isChecked === false;
-           });
+           result = confirm("本当に終わりましたか？");
+           if(result) {
+              this.things = this.things.filter(function(thing){
+                  return thing.isChecked === false;
+              })
+           }else{
+
+           }
        },
    },
    computed: {
