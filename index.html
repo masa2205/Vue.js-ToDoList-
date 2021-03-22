@@ -20,7 +20,7 @@
       </li>  
     </ul>
     <form @submit.prevent="add">
-      <input type="text" v-model="newthings">
+      <input type="text" v-model.trim="newthings">
       <button type="submit">追加</button>
     </form>
       <button v-on:click="deleteTodo">削除</button>
