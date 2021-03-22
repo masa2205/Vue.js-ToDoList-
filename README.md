@@ -495,3 +495,41 @@ var app = new Vue ({
 })
 ```
 
+- チェックしたリストに打ち消し線を引く
+
+label要素にclass属性を設定し、打ち消し戦が入るようにする。
+head内要素に打ち消し線を表示するスタイルを追加する。
+```
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js ToDoList学習</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+    .done { text-decoration: line-through; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>To Do List</h1>
+    <ul>
+      <li v-for="thing in things">
+        <label v-bind:class="{ done: thing.isChecked }">
+          <input type="checkbox" v-model="thing.isChecked"> {{ thing.title }}
+        </label>
+      </li>  
+    </ul>
+    <form @submit.prevent="add">
+      <input type="text" v-model="newthings">
+      <button type="submit">追加</button>
+    </form>
+      <button v-on:click="deleteTodo">削除</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
+
+```
