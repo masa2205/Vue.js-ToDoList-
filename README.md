@@ -497,7 +497,7 @@ var app = new Vue ({
 
 - チェックしたリストに打ち消し線を引く
 
-label要素にclass属性を設定し、打ち消し戦が入るようにする。
+label要素にclass属性を設定し、打ち消し戦が入るようにする。  
 head内要素に打ち消し線を表示するスタイルを追加する。
 ```
 <!DOCTYPE html>
@@ -531,5 +531,31 @@ head内要素に打ち消し線を表示するスタイルを追加する。
 
 </body>
 </html>
+```
 
+- ToDoリストに日付を表示する
+
+`<div id="app">` 内に`{{ 関数名 }}`を指定。  
+```
+<body>
+  <div id="app">
+    <h1>To Do List</h1>
+    <p>{{setDate}}</p>
+    <ul>
+      <li v-for="thing in things">
+        <label v-bind:class="{ done: thing.isChecked }">
+          <input type="checkbox" v-model="thing.isChecked"> {{ thing.title }}
+        </label>
+```
+date内に`computed`プロパティを作成し、日付をとる関数を定義する。
+```
+computed: {
+    setDate: function() {
+        hiduke = new Date();
+        year = hiduke.getFullYear();
+        month = hiduke.getMonth()+1;
+        day = hiduke.getDate();
+        return this.transfer_data = year + '/' + month + '/' + day ;
+        } 
+   }
 ```
