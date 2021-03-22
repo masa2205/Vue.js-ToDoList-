@@ -559,3 +559,19 @@ computed: {
         } 
    }
 ```
+
+- リストを削除する際にアラートを表示して確認する。
+
+`deleteTodo`関数内に`confirm`メソッドを追加する。
+```
+deleteTodo: function(){
+           result = confirm("本当に終わりましたか？");
+           if(result) {
+              this.things = this.things.filter(function(thing){
+                  return thing.isChecked === false;
+              })
+           }else{
+
+           }
+       },
+```
