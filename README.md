@@ -590,3 +590,13 @@ CSS内でv-cloakを指定し、`display:none`を付与する。
     display:none;
   }
 ```
+
+- テキストボックス入力時に誤った空白(space)を無くしてあげる。
+
+フォーム入力バインディングの修飾子`.trim`を`v-model`の後に追記する。
+```
+    <form @submit.prevent="add">
+      <input type="text" v-model.trim="newthings">
+      <button type="submit">追加</button>
+    </form>
+```
