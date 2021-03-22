@@ -2,10 +2,10 @@ var app = new Vue ({
    el: "#app",
    data: {
        things: [
-        { title: 'やること1', isChecked: false,},
-        { title: 'やること2', isChecked: false,},
-        { title: 'やること3', isChecked: true,},
-       ],   
+        { title: 'やること1', isChecked: false },
+        { title: 'やること2', isChecked: false },
+        { title: 'やること3', isChecked: true },
+       ],
        newthings:"",
    },
    methods: {
@@ -15,7 +15,7 @@ var app = new Vue ({
                title: this.newthings,
                isChecked: false,
            });
-           this.newthings = "";
+           this.newthings = ""
        },
        deleteTodo: function(){
            this.things = this.things.filter(function(thing){
@@ -23,4 +23,13 @@ var app = new Vue ({
            });
        },
    },
+   computed: {
+    setDate: function() {
+        hiduke = new Date();
+        year = hiduke.getFullYear();
+        month = hiduke.getMonth()+1;
+        day = hiduke.getDate();
+        return this.transfer_data = year + '/' + month + '/' + day ;
+        } 
+   }
 })
