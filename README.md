@@ -362,3 +362,74 @@ var app = new Vue ({
    },
 })
 ```
+
+- 追加ボタンをEnterキーでクリックできるようにする
+
+`<form @submit.prevent="add">`でテキストボックスタグとボタンタグを括る。  
+formタグで関数`add`をバインディングしてるので、ボタンタグの中身は`type="submit`とする。
+```
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js ToDoList学習</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="app">
+    <h1>To Do List</h1>
+    <ul>
+      <li v-for="thing in things">
+        <label>
+          <input type="checkbox" v-model="thing.isChecked"> {{ thing.title }}
+        </label>
+      </li>  
+    </ul>
+    <form @submit.prevent="add">
+      <input type="text" v-model="newthings">
+      <button type="submit">追加</button>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
+```
+
+ - 終了したToDoをリストから削除する
+
+削除していかないとリストが溢れて見にくくなってしまうため、リストから終わったToDoを削除する機能を追加する。  
+新しく削除ボタンを追加し、クリックした時にテキストボックスのチェック済み項目(`things`配列内のオブジェクト)を更新する関数を`methods`オプションに追加する。
+
+```
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js ToDoList学習</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="app">
+    <h1>To Do List</h1>
+    <ul>
+      <li v-for="thing in things">
+        <label>
+          <input type="checkbox" v-model="thing.isChecked"> {{ thing.title }}
+        </label>
+      </li>  
+    </ul>
+    <form @submit.prevent="add">
+      <input type="text" v-model="newthings">
+      <button type="submit">追加</button>
+    </form>
+    <button v-on:click="delete">削除</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
+```
+

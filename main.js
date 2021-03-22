@@ -16,5 +16,10 @@ var app = new Vue ({
            });
            this.newthings = "";
        },
+       deleteTodo: function(){
+           this.things = this.things.filter(function(thing){
+               return thing.isChecked === false;
+           });
+       },
    },
 })
