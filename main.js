@@ -1,12 +1,8 @@
 var app = new Vue ({
    el: "#app",
    data: {
-       things: [
-        { title: 'やること1', isChecked: false },
-        { title: 'やること2', isChecked: false },
-        { title: 'やること3', isChecked: true },
-       ],
-       newthings:"",
+       title: "",
+       things: []
    },
    methods: {
        add: function(){
