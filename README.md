@@ -433,3 +433,65 @@ formタグで関数`add`をバインディングしてるので、ボタンタ�
 </html>
 ```
 
+関数内では`filter`メソッドを使用する。
+```
+var app = new Vue ({
+   el: "#app",
+   data: {
+       things: [
+        { title: 'やること1', isChecked: false,},
+        { title: 'やること2', isChecked: false,},
+        { title: 'やること3', isChecked: true,},
+       ],   
+       newthings:"",
+   },
+   methods: {
+       add: function(){
+           this.things.push({
+               title: this.newthings,
+               isChecked: false,
+           });
+           this.newthings = "";
+       },
+       deleteTodo: function(){
+           this.things = this.things.filter(function(thing){
+               return thing.isChecked === false;
+           });
+       },
+   },
+})
+```
+ブラウザ上で確認する。
+
+- テキストボックス内が空欄の場合、リストに追加できないようにする。
+
+`add`関数内に`if`文を追加する。
+```
+var app = new Vue ({
+   el: "#app",
+   data: {
+       things: [
+        { title: 'やること1', isChecked: false,},
+        { title: 'やること2', isChecked: false,},
+        { title: 'やること3', isChecked: true,},
+       ],   
+       newthings:"",
+   },
+   methods: {
+       add: function(){
+           if(this.newthings == "")return;
+           this.things.push({
+               title: this.newthings,
+               isChecked: false,
+           });
+           this.newthings = "";
+       },
+       deleteTodo: function(){
+           this.things = this.things.filter(function(thing){
+               return thing.isChecked === false;
+           });
+       },
+   },
+})
+```
+
