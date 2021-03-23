@@ -11,7 +11,8 @@ var app = new Vue ({
                title: this.newthings,
                isChecked: false,
            });
-           this.newthings = ""
+           this.newthings = "";
+           this.saveList();
        },
        deleteTodo: function(){
            result = confirm("本当に終わりましたか？");
@@ -21,8 +22,12 @@ var app = new Vue ({
               })
            }else{
 
-           }
+           };
+           this.saveList();
        },
+       saveList: function(){
+        localStorage.setItem('things', JSON.stringify(this.things));
+       }
    },
    computed: {
         setDate: function() {
