@@ -683,3 +683,24 @@ deleteTodo: function(){
 ```
 
 保存の確認はデベロッパーツールの `application`> `Storage > localStorage > file://` と降り、選択したときに右側に `things` が保存されているのが見える。
+
+- データをブラウザから読み出す
+
+dataオプション内の配列thingsにブラウザ内のデータを持ってくる。
+ブラウザ内のデータは文字列なので、`JSON.parse`で配列に直す。
+ブラウザにデータが無い場合、if文で条件分岐し空の配列を入れる。
+```
+loadList: function(){
+           this.things=JSON.parse(localStorage.getItem('things'));
+           if(!this.things){
+               this.things=[];
+           }
+```
+
+初期表示時に動く処理は `mounted` オプションで指定できる。
+`methods`オプション内に下記を追加。
+```
+mounted: function(){
+           this.loadList();
+       }
+```
