@@ -13,6 +13,8 @@
     <h1>To Do List</h1>
     <p>{{setDate}}</p>
     <ul>
+      <li v-if="things.length <= 0">現在やることはありません</li>
+      <li v-else></li>
       <li v-for="thing in things">
         <label v-bind:class="{ done: thing.isChecked }">
           <input type="checkbox" v-model="thing.isChecked"> {{ thing.title }}
