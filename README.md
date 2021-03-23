@@ -611,3 +611,22 @@ data: {
        things: []
    },
 ```
+
+- ToDoリストが何もない場合、デフォルトで文字を表示させておく
+
+ToDoを全て終えた、若しくはまだ1つもToDoを追加していない場合、ブラウザ上に現在やることはありませんと表示させたい。    
+`if`文を使って`things`ないの要素がないときは、表示、あるときは非表示と設定出来れば良い。  
+`list`要素内に`v-if``v-else`で条件を定義。 
+ if条件でリストの`length`の数によって条件分岐をさせるため、`things.length <= 0`を条件式とし、true(v-if)の場合は表示させたい文字を渡し、false(v-if)の場合は空欄を渡す。  
+
+ ```
+<ul>
+      <li v-if="things.length <= 0">現在やることはありません</li>
+      <li v-else></li>
+      <li v-for="thing in things">
+        <label v-bind:class="{ done: thing.isChecked }">
+          <input type="checkbox" v-model="thing.isChecked"> {{ thing.title }}
+        </label>
+      </li>  
+    </ul>
+ ```
