@@ -27,7 +27,16 @@ var app = new Vue ({
        },
        saveList: function(){
         localStorage.setItem('things', JSON.stringify(this.things));
-       }
+       },
+       loadList: function(){
+        this.things=JSON.parse(localStorage.getItem('things'));
+        if(!this.things){
+            this.things=[];
+        }
+    },
+    mounted: function(){
+        this.loadList();
+    }
    },
    computed: {
         setDate: function() {
