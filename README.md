@@ -630,3 +630,56 @@ ToDoを全て終えた、若しくはまだ1つもToDoを追加していない�
       </li>  
     </ul>
  ```
+- コンパイルでデータがリセットされるのを防ぐ
+
+コンパイルするとリストがリセットされてしまうので、データをブラウザに保存し、初期表示の際に利用する。    
+データをブラウザに保存する際は、`localStorage`に`things`配列を保存する。  
+methodsオプションにその関数を定義する。  
+配列のままでは入れることができないので、文字列に変換する`JSON.stringify`を使用する。  
+`localStorage.setItem("配列名"JSON.stringify(this.値))`で実装。  
+```
+saveList: function(){
+  localStorage.setItem('things', JSON.stringify(this.things));
+},
+```
+
+項目を追加、削除した際にブラウザに保存するために、`add`関数と`deleteTodo`関数内の最後に`saveList`を呼び出す。  
+```
+add: function(){
+           if(this.newthings == "")return;
+           this.things.push({
+               title: this.newthings,
+               isChecked: false,
+           });
+           this.newthings = "";
+           this.saveList();
+       },
+```
+```
+deleteTodo: function(){
+           result = confirm("本当に終わりましたか？");
+           if(result) {
+              this.things = this.things.filter(function(thing){
+                  return thing.isChecked === false;
+              })
+           }else{
+
+           };
+           this.saveList();
+       },
+```
+
+チェックボックスを操作した際にも配列の中身は変わるので、そこでも関数を呼び出す。  
+```
+<ul>
+      <li v-if="things.length <= 0">現在やることはありません</li>
+      <li v-else></li>
+      <li v-for="thing in things">
+        <label v-bind:class="{ done: thing.isChecked }">
+          <input type="checkbox" v-model="thing.isChecked" v-on:change="saveList"> {{ thing.title }}
+        </label>
+      </li>  
+    </ul>
+```
+
+保存の確認はデベロッパーツールの `application`> `Storage > localStorage > file://` と降り、選択したときに右側に `things` が保存されているのが見える。
