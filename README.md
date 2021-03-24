@@ -705,3 +705,11 @@ mounted: function(){
        }
 ```
 
+- マスタッシュの代わりにディレクティブを使う
+
+ マスタッシュ構文の代わりにディレクテブ`v-text`ディレクテブを使ってデータバインディングする。
+ ```
+<div id="app" v-cloak>
+    <h1>To Do List</h1>
+    <p v-text="setDate"></p>
+ ```
