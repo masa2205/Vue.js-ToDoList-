@@ -22,7 +22,7 @@
       </li>  
     </ul>
     <form @submit.prevent="add">
-      <input type="text" v-model.trim="newthings">
+      <input type="text" v-model.trim="newthings" placeholder="ToDoを入力して下さい">
       <button type="submit">追加</button>
     </form>
       <button v-on:click="deleteTodo">削除</button>

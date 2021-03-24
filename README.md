@@ -713,3 +713,12 @@ mounted: function(){
     <h1>To Do List</h1>
     <p v-text="setDate"></p>
  ```
+
+ - placeholderの追加
+
+```
+<form @submit.prevent="add">
+      <input type="text" v-model.trim="newthings" placeholder="ToDoを入力して下さい">
+      <button type="submit">追加</button>
+    </form>
+```
