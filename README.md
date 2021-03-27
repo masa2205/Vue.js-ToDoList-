@@ -722,3 +722,13 @@ mounted: function(){
       <button type="submit">追加</button>
     </form>
 ```
+
+- v-bindを省略形で記述する
+
+```
+<li v-for="thing in things">
+        <label :class="{ done: thing.isChecked }">
+          <input type="checkbox" v-model="thing.isChecked" v-on:change="saveList">{{ thing.title }}
+        </label>
+      </li>  
+```
