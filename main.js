@@ -2,7 +2,7 @@ var app = new Vue ({
    el: "#app",
    data: {
        title: "",
-       things: []
+       things: [],
    },
    methods: {
        add: function(){
@@ -19,7 +19,8 @@ var app = new Vue ({
            if(result) {
               this.things = this.things.filter(function(thing){
                   return thing.isChecked === false;
-              })
+              }),
+              alert("お疲れ様でした!")
            }else{
 
            };
@@ -45,6 +46,12 @@ var app = new Vue ({
            month = hiduke.getMonth()+1;
            day = hiduke.getDate();
            return this.transfer_data = year + '/' + month + '/' + day ;
-           } 
+        },
+        remaining: function() {
+            return this.things.filter(function(thing) {
+                return thing.isChecked == true;
+            }).length;
+        },
+
    }
 })
