@@ -1,27 +1,33 @@
 #app ul{
-    list-style:none;
-  }
-  
-  [v-cloak]{
-    display:none;
-  }
+  list-style:none;
+}
 
-  @import url(sanitize.css);
+[v-cloak]{
+  display:none;
+}
+
+ul, ol {
+  padding: 0;
+  position: relative;
+}
+
+ul li, ol li {
+  color: #2d8fdd;
+  border-left: solid 6px #2d8fdd;/*左側の線*/
+  background: #f1f8ff;/*背景色*/
+  margin-bottom: 3px;/*下のバーとの余白*/
+   line-height: 1.5;
+  padding: 0.5em;
+  list-style-type: none!important;/*ポチ消す*/
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/*Page styles*/
+html { height: 100%; }
+
 body {
-  font-family:sans serif;
-    background-color: rgb(211, 203, 203);
-}
-  
-  button {
-    margin: 10px 5px;
-    padding: 10px 10px;
-    background-color: black;
-    color: #fff;
-    font-size: 15px;
-    padding: 5px 5px;
-}
-
-p {
-  margin: 10px 5px;
-  font-size: 15px;
+  height: 100%;
+  background: #FFFAFA;
+  align-items: center;
 }
