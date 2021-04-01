@@ -6,4 +6,28 @@
     display:none;
   }
   
+  ul, ol {
+    padding: 0;
+    position: relative;
+  }
   
+  ul li, ol li {
+    color: #2d8fdd;
+    border-left: solid 6px #2d8fdd;/*左側の線*/
+    background: #f1f8ff;/*背景色*/
+    margin-bottom: 3px;/*下のバーとの余白*/
+     line-height: 1.5;
+    padding: 0.5em;
+    list-style-type: none!important;/*ポチ消す*/
+  }
+
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+  /*Page styles*/
+  html { height: 100%; }
+  
+  body {
+    height: 100%;
+    background: #FFFAFA;
+    align-items: center;
+  }

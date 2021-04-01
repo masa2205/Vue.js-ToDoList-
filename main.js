@@ -15,6 +15,9 @@ var app = new Vue ({
            this.saveList();
        },
        deleteTodo: function(){
+         if(this.things.length <= 0){
+
+         }else{
            result = confirm("本当に終わりましたか？");
            if(result) {
               this.things = this.things.filter(function(thing){
@@ -25,6 +28,7 @@ var app = new Vue ({
 
            };
            this.saveList();
+         }
        },
        saveList: function(){
         localStorage.setItem('things', JSON.stringify(this.things));
@@ -52,6 +56,5 @@ var app = new Vue ({
                 return thing.isChecked == true;
             }).length;
         },
-
    }
 })
