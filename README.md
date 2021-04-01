@@ -42,13 +42,7 @@ const app = new Vue ({
   
 Vue.jsのアプリケーションを紐づけたdivタグの中に`{{ データの名前 }}`を使用
 ```
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js ToDoList学習</title>
-  <link rel="stylesheet" href="main.css">
-</head>
+
 <body>
   <div id="app">
     {{ message }}
@@ -57,7 +51,7 @@ Vue.jsのアプリケーションを紐づけたdivタグの中に`{{ データ�
   <script src="main.js"></script>
 
 </body>
-</html>
+
 ```
 
 Vueインスタンスの中でdataプロパティを定義する。
@@ -75,13 +69,7 @@ var app = new Vue ({
 ## データをバインディングする
 `{{ message }}`に`v-model`ディレクテブを追加する(入力したデータとバインディングしたいので`type=text`とし、テキストボックスを追加)。
 ```
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js ToDoList学習</title>
-  <link rel="stylesheet" href="main.css">
-</head>
+
 <body>
   <div id="app">
     <input type="text" v-model="message">
@@ -89,9 +77,8 @@ var app = new Vue ({
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="main.js"></script>
-
 </body>
-</html>
+
 ```
 ブラウザ上で確認する。
 
@@ -100,13 +87,7 @@ var app = new Vue ({
 input要素に `v-model="true"` であればチェックがつき、 `v-model="false"` であればチェックがはずれ
 る。
 ```
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js ToDoList学習</title>
-  <link rel="stylesheet" href="main.css">
-</head>
+
 <body>
   <div id="app">
     <input type="text" v-model="message">
@@ -117,7 +98,7 @@ input要素に `v-model="true"` であればチェックがつき、 `v-model="f
   <script src="main.js"></script>
 
 </body>
-</html>
+
 ```
 ```
 var app = new Vue ({
@@ -135,13 +116,7 @@ var app = new Vue ({
 Vue.jsのアプリケーションを紐づけたdivタグの中に`v-for`ディレクティブを使用。
 データオプション内に特定の配列を作成し、`v-for`で指定する。
 ```
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js ToDoList学習</title>
-  <link rel="stylesheet" href="main.css">
-</head>
+
 <body>
   <div id="app">
     <input type="text" v-model="message">
@@ -155,7 +130,7 @@ Vue.jsのアプリケーションを紐づけたdivタグの中に`v-for`ディ�
   <script src="main.js"></script>
 
 </body>
-</html>
+
 ```
 
 ```
@@ -181,13 +156,7 @@ Vue.jsのアプリケーションを紐づけたdivタグの中に`v-on:click`�
 `methods`オプションを作成し、その中で関数を定義する。  
 データオプション内のデータは`this.データ名`で参照できる。  
 ```
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js ToDoList学習</title>
-  <link rel="stylesheet" href="main.css">
-</head>
+
 <body>
   <div id="app">
     <input type="text" v-model="message">
@@ -203,7 +172,7 @@ Vue.jsのアプリケーションを紐づけたdivタグの中に`v-on:click`�
   <script src="main.js"></script>
 
 </body>
-</html>
+
 ```
 
 ```
@@ -289,12 +258,7 @@ var app = new Vue ({
 
 `<div id="app">` 内の　テキストボックス内の要素と`<button>`タグの中身を下記を修正する。
 ```
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js ToDoList学習</title>
-  <link rel="stylesheet" href="main.css">
-</head>
-<body>
+
   <div id="app">
     <h1>To Do List</h1>
     <ul>
@@ -307,11 +271,7 @@ var app = new Vue ({
     <input type="text" v-model="newthings">
     <button v-on:click="add">追加</button>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-  <script src="main.js"></script>
-
-</body>
-</html>
+  
 ```
 
 データ内に`newthings`を追加し`v-model`でバインディングする(入力した内容が追加されるようにしたいので値を空白に設定する)。  
@@ -341,16 +301,7 @@ var app = new Vue ({
 追加ボタンを押すとテキストボックス内に入力した文字が残ってしまうので残らないようにする。
 `add`関数の最後にその処理を追加する。
 ```
-var app = new Vue ({
-   el: "#app",
-   data: {
-       things: [
-        { title: 'やること1', isChecked: false,},
-        { title: 'やること2', isChecked: false,},
-        { title: 'やること3', isChecked: true,},
-       ],   
-       newthings:"",
-   },
+
    methods: {
        add: function(){
            this.things.push({
@@ -360,7 +311,7 @@ var app = new Vue ({
            this.newthings = "";
        },
    },
-})
+
 ```
 
 - 追加ボタンをEnterキーでクリックできるようにする
@@ -368,14 +319,7 @@ var app = new Vue ({
 `<form @submit.prevent="add">`でテキストボックスタグとボタンタグを括る。  
 formタグで関数`add`をバインディングしてるので、ボタンタグの中身は`type="submit`とする。
 ```
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js ToDoList学習</title>
-  <link rel="stylesheet" href="main.css">
-</head>
-<body>
+
   <div id="app">
     <h1>To Do List</h1>
     <ul>
@@ -390,11 +334,7 @@ formタグで関数`add`をバインディングしてるので、ボタンタ�
       <button type="submit">追加</button>
     </form>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-  <script src="main.js"></script>
-
-</body>
-</html>
+  
 ```
 
  - 終了したToDoをリストから削除する
@@ -403,14 +343,7 @@ formタグで関数`add`をバインディングしてるので、ボタンタ�
 新しく削除ボタンを追加し、クリックした時にテキストボックスのチェック済み項目(`things`配列内のオブジェクト)を更新する関数を`methods`オプションに追加する。
 
 ```
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js ToDoList学習</title>
-  <link rel="stylesheet" href="main.css">
-</head>
-<body>
+
   <div id="app">
     <h1>To Do List</h1>
     <ul>
@@ -426,25 +359,12 @@ formタグで関数`add`をバインディングしてるので、ボタンタ�
     </form>
     <button v-on:click="delete">削除</button>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-  <script src="main.js"></script>
-
-</body>
-</html>
+  
 ```
 
 関数内では`filter`メソッドを使用する。
 ```
-var app = new Vue ({
-   el: "#app",
-   data: {
-       things: [
-        { title: 'やること1', isChecked: false,},
-        { title: 'やること2', isChecked: false,},
-        { title: 'やること3', isChecked: true,},
-       ],   
-       newthings:"",
-   },
+
    methods: {
        add: function(){
            this.things.push({
@@ -468,15 +388,7 @@ var app = new Vue ({
 `add`関数内に`if`文を追加する。
 ```
 var app = new Vue ({
-   el: "#app",
-   data: {
-       things: [
-        { title: 'やること1', isChecked: false,},
-        { title: 'やること2', isChecked: false,},
-        { title: 'やること3', isChecked: true,},
-       ],   
-       newthings:"",
-   },
+   
    methods: {
        add: function(){
            if(this.newthings == "")return;
@@ -611,6 +523,7 @@ data: {
        things: []
    },
 ```
+
 
 - ToDoリストが何もない場合、デフォルトで文字を表示させておく
 
