@@ -5,3 +5,23 @@
   [v-cloak]{
     display:none;
   }
+
+  @import url(sanitize.css);
+body {
+  font-family:sans serif;
+    background-color: rgb(211, 203, 203);
+}
+  
+  button {
+    margin: 10px 5px;
+    padding: 10px 10px;
+    background-color: black;
+    color: #fff;
+    font-size: 15px;
+    padding: 5px 5px;
+}
+
+p {
+  margin: 10px 5px;
+  font-size: 15px;
+}
