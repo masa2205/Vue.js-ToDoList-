@@ -9,11 +9,11 @@
     .done { text-decoration: line-through; }
   </style>
 </head>
-<body class="mx-auto" style="width: 700px;">
+<body class="mx-auto" style="width: 1000px;">
   <div id="app" v-cloak class="border col-7">
     <h1 class="text-center">ToDo List</h1>
     <p v-text="setDate"></p>
-    <p>全{{things.length}}件</p>
+    <p>全 {{things.length}} 件 / 現在 {{ remaining }} 件終わりました</p>
     <ul class="list-group list-group-flush">
       <li v-if="things.length <= 0">現在やることはありません</li>
       <li v-else></li>
@@ -28,7 +28,6 @@
       <button type="submit" class="btn btn-outline-primary btn-sm">追加</button>
     </form>
       <button v-on:click="deleteTodo" class="btn btn-outline-primary btn-sm">削除</button>
-      <p>現在 {{ remaining }} 件終わりました</p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="main.js"></script>

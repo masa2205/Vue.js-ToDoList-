@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 #app ul{
   list-style:none;
 }
@@ -24,10 +26,25 @@ ul li, ol li {
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 /*Page styles*/
-html { height: 100%; }
+html { height: 50%; }
+
+*{
+  margin: 0;
+  padding: 0;
+}
 
 body {
   height: 100%;
-  background: #FFFAFA;
+  background: #f3f4f5;
   align-items: center;
+  font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
+}
+
+h1{
+  background-color: #93C47D;
+  font-family: "Verdana";
+  font-size: 3.0rem;
+  text-align: center;
+  margin: 0px;
+  padding: 1rem;
 }
